@@ -1,0 +1,10 @@
+.formContainer{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    width:20%;
+
+    label{
+        margin:10px;
+    }
+}

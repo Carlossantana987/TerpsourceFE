@@ -1,0 +1,68 @@
+// .homebanner{
+//     position: relative;
+//     height:60%;
+//     padding:41px 95px 41px 70px;
+
+//     h1{
+//        font-size: 40px;
+//     }
+
+// }
+
+.bannerContainer{
+  display:flex;
+  flex-direction: row;
+}
+
+.homeContext{
+
+  color:white;
+  line-height: 20px;
+  margin-left:80px;
+
+  h1{
+    color:white;
+    // position: relative;
+    // top:0px;
+    // left:60px;
+    font-size:7vw;
+    font-family: 'Roboto', sans-serif;
+  }
+
+  h2{
+    color:white;
+    // position: absolute;
+    // top:90px;
+    // left:60px;
+    font-size:3vw;
+    font-family: 'Roboto', sans-serif;
+  }
+
+  h4{
+    color:white;
+    // position: absolute;
+    // top:27%;
+    // left:60px;
+    font-weight: 100;
+    font-size:2vw;
+    font-family: sans-serif;
+  }
+}
+
+.homebanner{
+    background: dodgerblue;
+    height: 33vh;
+    width: 100%;
+
+    
+}
+
+.homeBannerContent{
+    position: absolute;
+    height: 400px;
+    background: white;
+    right: -96px;
+    width: 52%;
+    transform: skew(-22deg);
+
+}

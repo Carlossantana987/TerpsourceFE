@@ -1,0 +1,55 @@
+.aboutUsSection{
+    background-color: #038CFF;
+    position:relative;
+    overflow: hidden;
+    height: 350px;
+}
+
+.detailImg{
+    position: absolute;
+    top: 0;
+    bottom: 0; 
+    right: 0;
+    height: 100%;
+    width: 50%;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    z-index: 0;
+}
+
+span{
+    position: absolute;
+    width: 52%;
+    top: 0;
+    height: 182%;
+    background-color: #038CFF;
+    transform: skew(-22deg);
+    z-index: 1;
+}
+
+.aboutUsDetail {
+    z-index: 4;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    padding: 3%;
+}
+
+
+
+
+.aboutUsTopSection{
+    display:flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    height:500px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image:url('../image/worldImg.png')
+}
+
+.topSectionText{
+    text-align: center;
+}
