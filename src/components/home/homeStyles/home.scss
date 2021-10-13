@@ -5,20 +5,38 @@
     }
 }
 
-.banner1Wrapper:before{
-  z-index: 1;
-  content: ' ';
-  display: block;
-  position: relative;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 40%;
-  opacity: 0.6;
-  background-image: url('../image/mainImg.jpg');
-  background-repeat: no-repeat;
-  background-position: 10% 50%;
-  background-size: cover;
+.banner1{
+    position: relative;
+    text-align: center;
+    
+}
+
+
+.banner1 img{
+    opacity: 0.7;
+    height:600px;
+    width:100%;
+}
+
+.banner1Wrapper{
+    color:white;
+    position:absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 3rem;
+    background:dodgerblue;
+    width:50%;
+    border-radius: 10px;
+    padding-bottom: 10px;
+    opacity: 0.9;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+
+
+    img{
+        opacity: 1;
+        height: 204px;
+    }
 }
 
 
