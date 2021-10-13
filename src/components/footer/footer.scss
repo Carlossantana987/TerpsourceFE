@@ -1,14 +1,32 @@
 
 .footerContainer{
-    background:#038CFF;
+    border:1px solid black;
+    background:rgb(160, 158, 158);
     display:flex;
     justify-content: space-around;
+    align-items: flex-start;
+    padding:1%;
 }
 
 .footerContent{
     width:20%;
+    ul{
+        padding:0px;
+        margin:0px;
+    }
+    h2{
+        border-bottom: 2px solid dodgerblue;
+        margin:0px;
+    }
+    
+    p{
+        font-weight: bold;
+    }
 }
 
 li{
     list-style: none;
+    .btn{
+        width:100%;
+    }
 }

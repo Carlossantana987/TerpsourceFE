@@ -1,7 +1,6 @@
 import React from 'react'
 import '../homeStyles/aboutDetail.scss'
 import detailImg from '../../../assets/TerpSourceHomeImage.png';
-// import worldImg from './image/worldImg.png';
 
 
 export default class AboutDetails extends React.Component {

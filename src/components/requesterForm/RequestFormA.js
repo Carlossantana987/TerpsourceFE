@@ -2,14 +2,31 @@ import React from 'react'
 import axios from 'axios';
 import './requestForm.scss';
 import { Formik, Field, Form } from 'formik';
+import SignatureCanvas from 'react-signature-canvas'
 import * as Yup from 'yup';
+import { faRubleSign } from '@fortawesome/free-solid-svg-icons';
 
 
-const RequestFormB = () => {
+const CustomInputComponent = (props) => (
+    <SignatureCanvas 
+    penColor='black'
+    backgroundColor="white"
+    throttle='11'
+    canvasProps={{height: 400, className: 'sigCanvas' }}/>
+)
+
+const RequestForm = () => {
 
 
     const DisplayingErrorMessagesSchema = Yup.object().shape({
-        language: Yup.string()
+        serviceType: Yup.string()
+            .required('Required'),
+        //Assingment Details
+        firstname: Yup.string()
+            .min(2, "too Short")
+            .required('Required'),
+        lastname: Yup.string()
+            .min(2, 'Too Short')
             .required('Required'),
         assignmentdate: Yup.string()
             .required('Required'),
@@ -17,11 +34,9 @@ const RequestFormB = () => {
             .required('Required'),
         assignmentendtime: Yup.string()
             .required('Required'),
-        consumersName: Yup.string()
-            .required('Required'),
         mr_case: Yup.string()
             .required('Required'),
-        natureOfRequest: Yup.string()
+        requesttype: Yup.string()
             .required('Required'),
         pointofcontent: Yup.string()
             .required('Required'),
@@ -45,6 +60,8 @@ const RequestFormB = () => {
         phonenumber: Yup.string()
             .required('Required'),
         email: Yup.string()
+            .required('Required'),
+        signature: Yup.string()
             .required('Required')
 
     });
@@ -53,13 +70,14 @@ const RequestFormB = () => {
     return (
         <Formik
             initialValues={{
-                language: '',
+                serviceType: '',
+                firstname: '',
+                lastname: '',
                 assignmentdate: '',
                 assignmentstarttime: '',
                 assignmentendtime: '',
-                consumersName:'',
                 mr_case: '',
-                natureOfRequest:'',
+                requesttype: '',
                 pointofcontent: '',
                 address: '',
                 city: '',
@@ -70,73 +88,97 @@ const RequestFormB = () => {
                 requestorstitle: '',
                 requestorsname: '',
                 phonenumber: '',
-                email: ''
+                email: '',
+                sigPad:{}
             }}
 
             validationSchema={DisplayingErrorMessagesSchema}
 
-
+            onClick ={ (values,actions) => {
+                this.sigPad.clear()
+            }}
 
             onSubmit={async (values) => {
                 console.log(values)
             }}
+
+
+
         >
 
             {({ values, errors, touched }) => (
                 <Form className="formContainer">
 
                     <section className='sectionR col1'>
-                        <h2 className="serviceType" id="my-radio-group">Language:</h2>
+                        <h2 className="serviceType" id="my-radio-group">Servicetype:</h2>
                         <div role="group" aria-labelledby="my-radio-group">
                             <label>
-                                <Field type="radio" name="language" value='Spanish' />
-                            Spanish
+                                <Field type="radio" name="serviceType" value='Education' />
+                            Education
                             </label>
                             <label>
-                                <Field type="radio" name="language" value='French' />
-                            French
+                                <Field type="radio" name="serviceType" value='Medical' />
+                            Medical
                             </label>
                             <label>
-                                <Field type="radio" name="language" value='Other' />
+                                <Field type="radio" name="serviceType" value='Government' />
+                            Government
+                            </label>
+                            <label>
+                                <Field type="radio" name="serviceType" value='Legal' />
+                            Legal
+                            </label>
+                            <label>
+                                <Field type="radio" name="serviceType" value='Business' />
+                            Business
+                            </label>
+                            <label>
+                                <Field type="radio" name="serviceType" value='Conference' />
+                            Conference
+                            </label>
+                            <label>
+                                <Field type="radio" name="serviceType" value='Other' />
                             Other
-                            </label>
+                        </label>
                         </div>
-                        {touched.language && errors.language && <div style={{ color: "red" }}>{errors.language}</div>}
+                        {touched.serviceType && errors.serviceType && <div style={{ color: "red" }}>{errors.serviceType}</div>}
                     </section>
 
 
                     <section className='sectionR col2'>
                         <h2>Assignment Details</h2>
+                        <label htmlFor="firstname">First Name</label>
+                        <Field name="firstname" type="text" />
+                        {touched.firstname && errors.firstname && <div style={{ color: "red" }}>{errors.firstname}</div>}
+
+                        <label htmlFor="lastname">Last Name</label>
+                        <Field name="lastname" type="text" />
+                        {touched.lastname && errors.lastname && <div style={{ color: "red" }}>{errors.lastname}</div>}
 
                         <label htmlFor="assignmentdate">Assignment Date</label>
                         <Field name="assignmentdate" type="date" />
                         {touched.assignmentdate && errors.assignmentdate && <div style={{ color: "red" }}>{errors.assignmentdate}</div>}
 
-                        <label htmlFor="assignmentstarttime">Expected Start Time</label>
+                        <label htmlFor="assignmentstarttime">Assignment Start Time</label>
                         <Field name="assignmentstarttime" type="time" />
                         {touched.assignmentstarttime && errors.assignmentstarttime && <div style={{ color: "red" }}>{errors.assignmentstarttime}</div>}
 
-                        <label htmlFor="assignmentendtime">Expected End Time</label>
+                        <label htmlFor="assignmentendtime">Assignment End Time</label>
                         <Field name="assignmentendtime" type="time" />
                         {touched.assignmentendtime && errors.assignmentendtime && <div style={{ color: "red" }}>{errors.assignmentendtime}</div>}
 
-                        <label htmlFor="mr_case">Consumers Name</label>
-                        <Field name="consumersName" type="text" />
-                        {touched.consumersName && errors.consumersName && <div style={{ color: "red" }}>{errors.consumersName}</div>}
-
-                        <label htmlFor="mr_case">MR#/CASE#</label>
+                        <label htmlFor="mr_case">MR# CASE#</label>
                         <Field name="mr_case" type="text" />
                         {touched.mr_case && errors.mr_case && <div style={{ color: "red" }}>{errors.mr_case}</div>}
 
-                        <label htmlFor="natureOfRequest">Nature of Request</label>
-                        <Field name="natureOfRequest" type="text" />
-                        {touched.natureOfRequest && errors.natureOfRequest && <div style={{ color: "red" }}>{errors.natureOfRequest}</div>}
+                        <label htmlFor="requesttype">Request Type</label>
+                        <Field name="requesttype" type="text" />
+                        {touched.requesttype && errors.requesttype && <div style={{ color: "red" }}>{errors.requesttype}</div>}
 
-                        <label htmlFor="pointofcontent">On-Site POC(Point of Contact)</label>
+                        <label htmlFor="pointofcontent">Point of Content</label>
                         <Field name="pointofcontent" type="text" />
                         {touched.pointofcontent && errors.pointofcontent && <div style={{ color: "red" }}>{errors.pointofcontent}</div>}
 
-                        <h3>Assignment Location</h3>
                         <label htmlFor="address">Address</label>
                         <Field name="address" type="text" />
                         {touched.address && errors.address && <div style={{ color: "red" }}>{errors.address}</div>}
@@ -150,7 +192,7 @@ const RequestFormB = () => {
                         {touched.state && errors.state && <div style={{ color: "red" }}>{errors.state}</div>}
 
                         <label htmlFor="zip">Zip</label>
-                        <Field name="zip" type="text" />
+                        <Field name="zip" type="number" />
                         {touched.zip && errors.zip && <div style={{ color: "red" }}>{errors.zip}</div>}
                     </section>
 
@@ -189,7 +231,10 @@ const RequestFormB = () => {
                         <p>PLEASE NOTE: The organization requesting service is responsible for obtaining prior approvals for interpreting services before the request for interpreting services is made.</p>
 
                         <div>I certify that I (REQUESTOR) am authorized to request this service on behalf of the (ORGANIZATION) in accordance with the approved/signed terms of agreement on file with INTERPRETER SOURCE LLC.</div>
-                        <h1>(SIGNITURE GOES HERE)</h1>
+
+                        <h2>Signature</h2>
+                        <Field name="sigPad" as={CustomInputComponent} />
+
                     </section>
 
                     <button type="submit">Submit</button>
@@ -200,4 +245,4 @@ const RequestFormB = () => {
 
 }
 
-export default RequestFormB
+export default RequestForm
