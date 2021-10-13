@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import './homeStyles/home.scss';
 import terpLogo from './image/logoTerp.png';
 import detailImg from './image/TerpSourceHomeImage.png';
+import mainImg from './image/mainImg.jpg'
 
 
 export default class Home extends React.Component {
@@ -11,10 +12,12 @@ export default class Home extends React.Component {
       <div className="backgroundHome">
 
         <div className="banner1">
-        <div className="banner1Wrapper"/>
+        <img src={mainImg}/>
+        <div className="banner1Wrapper">
           <h1>LANGUAGE</h1>
           <h2>INTERPRETING SERVICES</h2>
           <h4>Empowering People & Communities to thrive</h4>
+          </div>
         </div>
 
         <section className="banner2">
