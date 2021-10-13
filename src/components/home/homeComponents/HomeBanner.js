@@ -12,7 +12,7 @@ export default class HomeBanner extends React.Component{
                 <h4>Empowering People & Communities to thrive</h4>
                 </div>
             </div>
-            
+            <span></span>
             <div className="homeBannerContent">
             </div>
             </div>
