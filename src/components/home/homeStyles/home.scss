@@ -6,8 +6,8 @@
 }
 
 .banner1Wrapper:before{
-    z-index: 1;
-    content: ' ';
+  z-index: 1;
+  content: ' ';
   display: block;
   position: relative;
   left: 0;
@@ -25,18 +25,18 @@
 
 
 .banner2{
-    display:flex;
-    flex-direction: column;
-    justify-content: center;
-    align-content: center;
-    align-items: center;
-    background:white;
-    font-size: 1.8rem;
-    color:black;
-    padding:6%;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-image: url('../image/worldImg.png');
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  background:white;
+  font-size: 1.8rem;
+  color:black;
+  padding:6%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: url('../image/worldImg.png');
 
     img{
         padding-top:2%;
