@@ -1,19 +1,10 @@
-import React from 'react'
+import React from 'react';
 import axios from 'axios';
 import './requestForm.scss';
 import { Formik, Field, Form } from 'formik';
-import SignatureCanvas from 'react-signature-canvas'
+import SigPad from './sigPad.js';
 import * as Yup from 'yup';
-import { faRubleSign } from '@fortawesome/free-solid-svg-icons';
 
-
-const CustomInputComponent = (props) => (
-    <SignatureCanvas 
-    penColor='black'
-    backgroundColor="white"
-    throttle='11'
-    canvasProps={{height: 400, className: 'sigCanvas' }}/>
-)
 
 const RequestForm = () => {
 
@@ -21,53 +12,70 @@ const RequestForm = () => {
     const DisplayingErrorMessagesSchema = Yup.object().shape({
         serviceType: Yup.string()
             .required('Required'),
+
         //Assingment Details
         firstname: Yup.string()
             .min(2, "too Short")
             .required('Required'),
+
         lastname: Yup.string()
             .min(2, 'Too Short')
             .required('Required'),
+
         assignmentdate: Yup.string()
             .required('Required'),
+
         assignmentstarttime: Yup.string()
             .required('Required'),
+
         assignmentendtime: Yup.string()
             .required('Required'),
+
         mr_case: Yup.string()
             .required('Required'),
+
         requesttype: Yup.string()
             .required('Required'),
+
         pointofcontent: Yup.string()
             .required('Required'),
+
         address: Yup.string()
             .required('Required'),
+
         city: Yup.string()
             .required('Required'),
+
         state: Yup.string()
             .required('Required'),
+
         zip: Yup.string()
             .required('Required'),
+
         //Requestor Details
         organization: Yup.string()
             .required('Required'),
+
         department: Yup.string()
             .required('Required'),
+
         requestorstitle: Yup.string()
             .required('Required'),
+
         requestorsname: Yup.string()
             .required('Required'),
+
         phonenumber: Yup.string()
             .required('Required'),
+
         email: Yup.string()
-            .required('Required'),
-        signature: Yup.string()
             .required('Required')
 
     });
 
 
-    return (
+
+    return(
         <Formik
             initialValues={{
                 serviceType: '',
@@ -88,28 +96,22 @@ const RequestForm = () => {
                 requestorstitle: '',
                 requestorsname: '',
                 phonenumber: '',
-                email: '',
-                sigPad:{}
+                email: ''
+            
             }}
 
             validationSchema={DisplayingErrorMessagesSchema}
 
-            onClick ={ (values,actions) => {
-                this.sigPad.clear()
-            }}
-
-            onSubmit={async (values) => {
+            onSubmit={(values) => {
                 console.log(values)
             }}
-
-
-
         >
 
-            {({ values, errors, touched }) => (
+            {({isSubmitting, errors, touched}) => (
                 <Form className="formContainer">
 
                     <section className='sectionR col1'>
+
                         <h2 className="serviceType" id="my-radio-group">Servicetype:</h2>
                         <div role="group" aria-labelledby="my-radio-group">
                             <label>
@@ -230,17 +232,20 @@ const RequestForm = () => {
 
                         <p>PLEASE NOTE: The organization requesting service is responsible for obtaining prior approvals for interpreting services before the request for interpreting services is made.</p>
 
-                        <div>I certify that I (REQUESTOR) am authorized to request this service on behalf of the (ORGANIZATION) in accordance with the approved/signed terms of agreement on file with INTERPRETER SOURCE LLC.</div>
+                        <Field name="sigpad" as={SigPad} />
+                        {touched.sigpad && errors.sigpad && <div style={{color:"red"}}>{errors.sigpad}</div>}
+                    
+                        <p>I certify that I (REQUESTOR) am authorized to request this service on behalf of the (ORGANIZATION) in accordance with the approved/signed terms of agreement on file with INTERPRETER SOURCE LLC.</p>
 
-                        <h2>Signature</h2>
-                        <Field name="sigPad" as={CustomInputComponent} />
-
+                        
                     </section>
 
-                    <button type="submit">Submit</button>
+                    <button type='submit' disabled={isSubmitting}>{isSubmitting ? " Request Submitted " : "Submit"}</button>
                 </Form>
             )}
         </Formik>
+
+                        
     )
 
 }
