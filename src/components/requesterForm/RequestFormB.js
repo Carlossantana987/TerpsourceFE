@@ -1,8 +1,10 @@
-import React from 'react'
+import React from 'react';
 import axios from 'axios';
 import './requestForm.scss';
 import { Formik, Field, Form } from 'formik';
+import SigPad from './sigPad.js';
 import * as Yup from 'yup';
+
 
 
 const RequestFormB = () => {
@@ -11,39 +13,56 @@ const RequestFormB = () => {
     const DisplayingErrorMessagesSchema = Yup.object().shape({
         language: Yup.string()
             .required('Required'),
+
         assignmentdate: Yup.string()
             .required('Required'),
+
         assignmentstarttime: Yup.string()
             .required('Required'),
+
         assignmentendtime: Yup.string()
             .required('Required'),
+
         consumersName: Yup.string()
             .required('Required'),
+
         mr_case: Yup.string()
             .required('Required'),
+
         natureOfRequest: Yup.string()
             .required('Required'),
+
         pointofcontent: Yup.string()
             .required('Required'),
+
         address: Yup.string()
             .required('Required'),
+
         city: Yup.string()
             .required('Required'),
+
         state: Yup.string()
             .required('Required'),
+
         zip: Yup.string()
             .required('Required'),
+
         //Requestor Details
         organization: Yup.string()
             .required('Required'),
+
         department: Yup.string()
             .required('Required'),
+
         requestorstitle: Yup.string()
             .required('Required'),
+
         requestorsname: Yup.string()
             .required('Required'),
+
         phonenumber: Yup.string()
             .required('Required'),
+
         email: Yup.string()
             .required('Required')
 
@@ -75,14 +94,12 @@ const RequestFormB = () => {
 
             validationSchema={DisplayingErrorMessagesSchema}
 
-
-
-            onSubmit={async (values) => {
+            onSubmit={(values) => {
                 console.log(values)
             }}
         >
 
-            {({ values, errors, touched }) => (
+            {({ isSubmitting, errors, touched }) => (
                 <Form className="formContainer">
 
                     <section className='sectionR col1'>
@@ -185,17 +202,24 @@ const RequestFormB = () => {
                         <Field name="email" type="email" />
                         {touched.email && errors.email && <div style={{ color: "red" }}>{errors.email}</div>}
 
-
+                        <div>
                         <p>PLEASE NOTE: The organization requesting service is responsible for obtaining prior approvals for interpreting services before the request for interpreting services is made.</p>
+                        </div>
+                        
+                        <Field name="sigpad" as={SigPad} />
+                        {touched.sigpad && errors.sigpad && <div style={{color:"red"}}>{errors.sigpad}</div>}
 
-                        <div>I certify that I (REQUESTOR) am authorized to request this service on behalf of the (ORGANIZATION) in accordance with the approved/signed terms of agreement on file with INTERPRETER SOURCE LLC.</div>
-                        <h1>(SIGNITURE GOES HERE)</h1>
+                        <p>I certify that I (REQUESTOR) am authorized to request this service on behalf of the (ORGANIZATION) in accordance with the approved/signed terms of agreement on file with INTERPRETER SOURCE LLC.</p>
+                        
+                        
                     </section>
 
-                    <button type="submit">Submit</button>
+                    <button type='submit' disabled={isSubmitting}>{isSubmitting ? "Request Submitted" : "Submit"}</button>
+                    
                 </Form>
             )}
         </Formik>
+        
     )
 
 }
