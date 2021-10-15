@@ -13,7 +13,7 @@ export default class Footer extends React.Component {
             <div className="footerContainer">
 
                 <div className="footerContent">
-                <Link to="/"><img src={terpLogo}/></Link>
+                    <Link to="/"><img src={terpLogo} /></Link>
                     <ul>
                         <li><Link className="btn" to='/requestA'>Sign Language Request</Link></li>
                         <li><Link className="btn" to="/requestB">Foreign Language Request</Link></li>
@@ -37,15 +37,16 @@ export default class Footer extends React.Component {
                 </div>
 
                 <div className="footerContent">
-                    <h2>SERVICES</h2>
-                    <h4>American Sign Language</h4>
-                    <p>On-Site Interpreting <br />
+
+                        <h2>SERVICES</h2>
+                        <h4>American Sign Language</h4>
+                        <p>On-Site Interpreting <br />
                8am - 5pm: 904-687-1022 Ext.1 <br />
                After Hours: 904-540-2123
             </p>
 
-                    <h4>Foreign Language</h4>
-                    <p>On-Site Interpreting <br />
+                        <h4>Foreign Language</h4>
+                        <p>On-Site Interpreting <br />
                8am - 5pm: 904-687-1022 Ext.2 <br />
                After Hours: 904-540-2123
             </p>
