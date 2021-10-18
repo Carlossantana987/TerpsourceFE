@@ -1,7 +1,6 @@
 import React from 'react';
 import {
     BrowserRouter as
-        Router,
         Link
 } from "react-router-dom";
 import terpLogo from './image/logoTerp.png'
@@ -11,7 +10,7 @@ export default class Navbar extends React.Component {
     render() {
         return (
                 <div className="nav">
-                    <Link to="/"><img src={terpLogo}></img></Link>
+                    <Link to="/"><img src={terpLogo} alt='terp logo'></img></Link>
                     <section>
                     <Link className="btn request" to="/requestA">ASL SIGN LANGUAGE<br/>Request Form</Link>
                     <Link className="btn request" to="/requestB">FORIEGN LANGUAGE<br/>Request Form</Link>
