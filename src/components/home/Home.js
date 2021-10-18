@@ -12,7 +12,7 @@ export default class Home extends React.Component {
       <div className="backgroundHome">
 
         <div className="banner1">
-        <img src={mainImg}/>
+        <img src={mainImg} alt="Background"/>
         <div className="banner1Wrapper">
           <h1>LANGUAGE</h1>
           <h2>INTERPRETING SERVICES</h2>
@@ -23,7 +23,7 @@ export default class Home extends React.Component {
         <section className="banner2">
           <h1>We Are Interpreting Experts</h1>
           <h2>Over 20 years of experience, 24 hours a day, 7 days a week.</h2>
-          <img src={terpLogo} />
+          <img src={terpLogo} alt="Terp Logo"/>
         </section>
 
         <section className="banner3">
@@ -31,7 +31,7 @@ export default class Home extends React.Component {
             <h2>Who is Interpreter Source</h2>
             <p>With more than 20 years of experience, Interpreter Source LLC is the language service provider of choice for clients all across Florida. We provide the most qualified and dependable access to highly trained professional linguists 24 hours a day, 7 days a week for onsite and phone interpreting to local government entities, educational institutions, medical facilities, law firms, non-profit organizations and much more.</p>
           </div>
-          <img src={detailImg} />
+          <img src={detailImg}  alt="Background"/>
         </section>
 
 

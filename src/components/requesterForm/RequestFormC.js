@@ -1,5 +1,4 @@
 import React from 'react'
-import axios from 'axios';
 import './requestForm.scss';
 import { Formik, Field, Form } from 'formik';
 import SigPad from './sigPad.js';
