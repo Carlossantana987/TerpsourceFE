@@ -1,9 +1,9 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import './homeStyles/home.scss';
-import terpLogo from './image/logoTerp.png';
-import detailImg from './image/TerpSourceHomeImage.png';
-import mainImg from './image/mainImg.jpg'
+import './home.scss';
+import terpLogo from '../home/image/logoTerp.png';
+import detailImg from '../home/image/TerpSourceHomeImage.png';
+import mainImg from '../home/image/mainImg.jpg'
 
 
 export default class Home extends React.Component {
@@ -21,8 +21,7 @@ export default class Home extends React.Component {
         </div>
 
         <section className="banner2">
-          <h1>We Are Interpreting Experts</h1>
-          <h2>Over 20 years of experience, 24 hours a day, 7 days a week.</h2>
+          <h1>Over 20 years of experience, 24 hours a day, 7 days a week.</h1>
           <img src={terpLogo} alt="Terp Logo"/>
         </section>
 
@@ -53,7 +52,7 @@ export default class Home extends React.Component {
             </div>
 
             <div className="detailSection">
-              <FontAwesomeIcon icon="deaf" size="5x" />
+              <FontAwesomeIcon icon="deaf" size="5x" /> 
               <h4>Deaf & Blind</h4>
               <p>Interpreter Source LLC provides on-site tactile interpreting services for the Deaf Blind/Low
                     vision community with various degrees of vision and hearing loss</p>
