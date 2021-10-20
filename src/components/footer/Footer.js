@@ -1,6 +1,6 @@
 import React from 'react'
 import {
-    BrowserRouter as Link
+ Link
 } from 'react-router-dom'
 import terpLogo from '../home/image/logoTerp.png'
 import './footer.scss';
@@ -17,7 +17,7 @@ export default class Footer extends React.Component {
                             <li><Link className="btn" to='/requestA'>Sign Language Request</Link></li>
                             <li><Link className="btn" to="/requestB">Foreign Language Request</Link></li>
                             <li><Link className="btn" to="/requestC">Assignment Cancellation</Link></li>
-                            <li><Link className="btn" to="#">Interpreter</Link></li>
+                            <li><Link className="btn" to="#">Interpreter Portal</Link></li>
                         </ul>
                     </div>
 

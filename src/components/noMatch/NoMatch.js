@@ -1,10 +1,16 @@
 import React from 'react';
+import {Link} from "react-router-dom";
+import '../noMatch/noMatch.scss';
 
 
 const NoMatch = () => {
     return(
-        <div>
-            <h1>PAGE NOT FOUND</h1>
+        <div className="nomatchContainer">
+        <section>
+            <h1>404 :(</h1>
+            <h2>Page Not Found or Does Not Exist</h2>
+            <Link to='/'> RETURN TO HOME PAGE </Link>
+            </section>
         </div>
     )
 }

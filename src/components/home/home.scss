@@ -84,11 +84,12 @@
   padding:6%;
   background-position: center;
   background-repeat: no-repeat;
-  background-image: url('../image/worldImg.png') center;
+  background-image: url('../home/image/worldImg.png') center;
   background-size:cover;
 
   h1{
-    mix-blend-mode: lighten;
+      font-size: 50px;
+      color:Black;
   }
 
     img{
