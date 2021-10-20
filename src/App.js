@@ -30,8 +30,8 @@ function App() {
           <Route path='/requestA' component={RequestA} />
           <Route path='/requestB' component={RequestB} />
           <Route path='/requestC' component={RequestC} />
-          <Route paath='/adminPanel' component={Login}/>
-          <Route path='*' component={NoMatch}></Route>
+          <Route path='/adminPanel' component={Login}/>
+          <Route component={NoMatch}></Route>
         </Switch>
         <Footer />
       </Router>
